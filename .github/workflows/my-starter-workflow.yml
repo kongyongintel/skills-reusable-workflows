@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/reusable-workflow.yml
+      - with:
+          node: 14
 
       - name: Run a multi-line script
         run: |
