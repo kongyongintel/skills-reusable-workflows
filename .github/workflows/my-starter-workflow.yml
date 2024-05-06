@@ -6,11 +6,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        nodeversion: [14, 16, 18, 20]
     steps:
       - uses: ./.github/workflows/reusable-workflow.yml
       - with:
-          node: 14
+          node: ${{ matrix.nodeversion }}
 
       - name: Run a multi-line script
         run: |
